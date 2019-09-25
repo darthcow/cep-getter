@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CepGetter</string>
+    <string name="input_cep_hint">Digite o CEP</string>
+</resources>
