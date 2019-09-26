@@ -1,4 +1,4 @@
-package com.project.cepgetter
+package com.project.cepgetter.web
 
 import retrofit2.Call
 import retrofit2.http.GET

@@ -27,10 +27,10 @@ dependencies {
     def lifecycle_version = "2.1.0"
 
 
-    implementation 'com.github.santalu:mask-edittext:1.1.1'
     implementation 'com.squareup.retrofit2:retrofit:2.6.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-    implementation 'ru.egslava:MaskedEditText:1.0.5'
+    implementation 'com.github.pinball83:masked-edittext:1.0.4'
+
     // optional - Test helpers for LiveData
     testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"

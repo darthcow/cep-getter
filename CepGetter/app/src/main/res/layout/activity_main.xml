@@ -7,23 +7,23 @@
     android:background="@color/darkGreen"
 
     tools:context=".MainActivity">
+<!--    android:maxLength="8"-->
 
 
     <EditText
         android:id="@+id/editText"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLength="8"
         android:hint="@string/input_cep_hint"
         android:imeOptions="actionSearch"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
-<!--        android:hint="Logradouro:\nCidade:\nEstado:"
--->
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"

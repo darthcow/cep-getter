@@ -1,5 +1,6 @@
-package com.project.cepgetter
+package com.project.cepgetter.web
 
+// specifies de response body of the call
 data class AddressResponse(
     val bairro: String,
     val cep: String,
