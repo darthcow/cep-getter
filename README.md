@@ -10,3 +10,4 @@ To do list:
 - Implement Best practices
 - Maybe use MVVM
 - Comment every notable code
+- Apply mask to TextView
