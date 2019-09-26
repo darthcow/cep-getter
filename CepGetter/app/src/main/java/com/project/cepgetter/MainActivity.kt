@@ -1,11 +1,13 @@
 package com.project.cepgetter
 
 import android.app.Activity
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -40,9 +42,29 @@ class MainActivity : AppCompatActivity() {
         view.clearFocus()
     }
 
+    private fun copyAddress() {
+        try {
+            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("address", textView.text.toString())
+            clipboard.setPrimaryClip(clip)
+            //TODO change toast code to kotlin extension later
+            Toast.makeText(this@MainActivity, "Endreço copiado!", Toast.LENGTH_SHORT).show()
+
+        } catch (e: Exception) {
+            Toast.makeText(
+                this,
+                "Erro ao copiar endereço: ${e.localizedMessage}",
+                Toast.LENGTH_LONG
+            ).show()
+            println(e.localizedMessage)
+        }
+    }
+
     override fun onResume() {
         super.onResume()
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
+
+//        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
+        textView.setOnClickListener { copyAddress() }
         editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
 
@@ -70,22 +92,16 @@ class MainActivity : AppCompatActivity() {
     private fun getCep(cep: String) {
         val call = WebClient().cepService().getCep(cep)
         call.enqueue(object : Callback<AddressResponse?> {
-            override fun onResponse(
-                call: Call<AddressResponse?>,
-                response: Response<AddressResponse?>
-            ) {
+            override fun onResponse(call: Call<AddressResponse?>, response: Response<AddressResponse?>) {
                 response.body().let {
                     textView.text = //it?.logradouro + ", " + it?.localidade + ", " + it?.uf
-                        "Logradouro: ${it?.logradouro}\nCidade: ${it?.localidade}\nEstado: ${it?.uf}"
+                        " Cep: ${it?.cep}\nLogradouro: ${it?.logradouro}\nBairro: ${it?.bairro}\nCidade: ${it?.localidade}\nEstado: ${it?.uf}"
 
                 }
             }
 
 
-            override fun onFailure(
-                call: Call<AddressResponse?>,
-                t: Throwable?
-            ) {
+            override fun onFailure(call: Call<AddressResponse?>, t: Throwable?) {
                 Toast.makeText(this@MainActivity, t?.message, Toast.LENGTH_SHORT).show()
             }
         })

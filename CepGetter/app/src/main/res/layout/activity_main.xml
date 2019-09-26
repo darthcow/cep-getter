@@ -13,7 +13,6 @@
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="5"
         android:maxLength="8"
         android:hint="@string/input_cep_hint"
         android:imeOptions="actionSearch"
@@ -23,13 +22,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
-
+<!--        android:hint="Logradouro:\nCidade:\nEstado:"
+-->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:gravity="start"
-        android:hint="Logradouro:\nCidade:\nEstado:"
         android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
