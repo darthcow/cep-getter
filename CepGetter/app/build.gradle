@@ -27,9 +27,8 @@ dependencies {
     def lifecycle_version = "2.1.0"
 
 
-    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-    implementation 'com.github.pinball83:masked-edittext:1.0.4'
 
     // optional - Test helpers for LiveData
     testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
