@@ -11,3 +11,4 @@ To do list:
 - Maybe use MVVM
 - Comment every notable code
 - Apply mask to TextView
+- add images to this readme after finishing project
