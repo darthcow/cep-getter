@@ -8,9 +8,9 @@ To do list:
 - ~~Implement Retrofit~~
 - Treat possible errors and exceptions
 - Implement Best practices
-- ~~Implement MVVM Pattern
-- ~~Comment every notable code
+- ~~Implement MVVM Pattern~~
+- ~~Comment every notable code~~
 - Apply mask to TextView
-- ~~Add extensions
+- ~~Add extensions~~
 - Add images to this readme after finishing project
 - Implement a way of checking if internet is avaiable(maybe an observer)
