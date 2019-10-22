@@ -46,16 +46,14 @@ class MainActivity : AppCompatActivity() {
 
         //set copyAddress fun to click listener
         result_address.setOnClickListener { copyAddress() }
+        //insert mask in editText
         cep_field.insertMask(CEP_MASK)
         //called extension fun onTextChange which implements TextWatcher
         cep_field.onTextChange {
             //checks if field has required number of characters to make request
             if (it.length == 9) {
                 //Only displays toast if fun returns a message different than null
-
-                viewModel.getCep(it)?.let { it1 ->
-                    this@MainActivity.longToast(it1)
-                }
+                viewModel.getCep(it)?.let { it1 -> this@MainActivity.longToast(it1) }
                 this@MainActivity.hideKeyboard()
             }
         }
