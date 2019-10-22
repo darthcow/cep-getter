@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     private fun copyAddress() {
         try {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            val clip = ClipData.newPlainText("address", textView.text.toString())
+            val clip = ClipData.newPlainText("address", result_address.text.toString())
             clipboard.setPrimaryClip(clip)
             //TODO change toast code to kotlin extension later
             Toast.makeText(this@MainActivity, "Endreço copiado!", Toast.LENGTH_SHORT).show()
@@ -66,8 +66,8 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        textView.setOnClickListener { copyAddress() }
-        editText.addTextChangedListener(object : TextWatcher {
+        result_address.setOnClickListener { copyAddress() }
+        cep_field.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
 
             }
@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         call.enqueue(object : Callback<AddressResponse?> {
             override fun onResponse(call: Call<AddressResponse?>, response: Response<AddressResponse?>) {
                 response.body().let {
-                    textView.text = //it?.logradouro + ", " + it?.localidade + ", " + it?.uf
+                    result_address.text = //it?.logradouro + ", " + it?.localidade + ", " + it?.uf
                         "Cep: ${it?.cep}\nLogradouro: ${it?.logradouro}\nBairro: ${it?.bairro}\nCidade: ${it?.localidade}\nEstado: ${it?.uf}"
 
                 }
