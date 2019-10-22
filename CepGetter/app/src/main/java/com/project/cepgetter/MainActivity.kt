@@ -4,11 +4,10 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.project.cepgetter.TextMask.CEP_MASK
 import com.project.cepgetter.extensions.hideKeyboard
 import com.project.cepgetter.extensions.longToast
 import com.project.cepgetter.extensions.onTextChange
@@ -47,15 +46,15 @@ class MainActivity : AppCompatActivity() {
 
         //set copyAddress fun to click listener
         result_address.setOnClickListener { copyAddress() }
-
+        cep_field.insertMask(CEP_MASK)
         //called extension fun onTextChange which implements TextWatcher
         cep_field.onTextChange {
             //checks if field has required number of characters to make request
-            if (it.length == 8) {
+            if (it.length == 9) {
                 //Only displays toast if fun returns a message different than null
 
-                viewModel.getCep(it)?.let {
-                    this@MainActivity.longToast(it)
+                viewModel.getCep(it)?.let { it1 ->
+                    this@MainActivity.longToast(it1)
                 }
                 this@MainActivity.hideKeyboard()
             }
