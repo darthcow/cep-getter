@@ -3,9 +3,7 @@ package com.project.cepgetter
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
-import com.project.cepgetter.TextMask.CEL_PHONE_MASK
-import com.project.cepgetter.TextMask.CPF_OR_CNPJ_MASK
-import com.project.cepgetter.TextMask.PHONE_MASK
+
 
 
 object TextMask {
@@ -38,9 +36,6 @@ fun EditText.insertMask(mask: String) {
             s: CharSequence, start: Int, before: Int,
             count: Int
         ) {
-            maskAux = when (mask) {
-                else -> mask
-            }
             val str = TextMask.unmask(s.toString())
             var mascara = ""
             if (isUpdating) {
