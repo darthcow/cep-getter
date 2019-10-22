@@ -11,4 +11,5 @@ To do list:
 - Implement MVVM Pattern
 - Comment every notable code
 - Apply mask to TextView
-- add images to this readme after finishing project
+- Add extensions
+- Add images to this readme after finishing project
