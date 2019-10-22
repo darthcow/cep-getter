@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
+    //fun to copy address result to clipboard
     private fun copyAddress() {
         try {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             if (it.length == 9) {
                 //Only displays toast if fun returns a message different than null
                 viewModel.getCep(it)?.let { it1 -> this@MainActivity.longToast(it1) }
+                //hides keyboard after getting address
                 this@MainActivity.hideKeyboard()
             }
         }
