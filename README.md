@@ -8,7 +8,7 @@ To do list:
 - ~~Implement Retrofit~~
 - Treat possible errors and exceptions
 - Implement Best practices
-- Maybe use MVVM
+- Implement MVVM Pattern
 - Comment every notable code
 - Apply mask to TextView
 - add images to this readme after finishing project
