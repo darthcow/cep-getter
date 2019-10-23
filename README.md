@@ -7,7 +7,6 @@ Project is 80% done.
 To do list:
 - ~~Implement Retrofit~~
 - ~~Treat possible errors and exceptions~~
-- Implement Best practices
 - ~~Implement MVVM Pattern~~
 - ~~Comment every notable code~~
 - ~~Apply mask to TextView~~
