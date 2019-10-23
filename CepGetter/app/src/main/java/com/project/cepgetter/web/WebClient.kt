@@ -8,9 +8,5 @@ private var retrofit : Retrofit = Retrofit.Builder()
     .baseUrl("https://viacep.com.br/ws/")
     .addConverterFactory(GsonConverterFactory.create())
     .build()
-
-
     fun cepService(): CepService = retrofit.create(CepService::class.java)
-
-
 }
