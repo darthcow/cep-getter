@@ -1,7 +1,7 @@
 # cep-getter
 project I made to implement simple get request using retrofit, the api used is [Viacep](https://viacep.com.br/)
 
-Project is 80% done.
+Project is 90% done.
 
 
 To do list:
