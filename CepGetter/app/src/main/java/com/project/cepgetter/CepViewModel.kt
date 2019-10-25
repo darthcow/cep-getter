@@ -1,5 +1,6 @@
 package com.project.cepgetter
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.project.cepgetter.web.AddressResponse
@@ -10,8 +11,10 @@ import retrofit2.Response
 
 class CepViewModel : ViewModel() {
 
-    val address = MutableLiveData<String>()
+    private val address = MutableLiveData<String>()
     var errorMessage: String? = null
+    val resultAddres: LiveData<String>
+    get() = address
 
 
     fun getCep(cep: String): String? {

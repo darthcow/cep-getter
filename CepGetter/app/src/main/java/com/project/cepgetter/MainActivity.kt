@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //observe viewmodel's variables and what to do with value
-        viewModel.address.observe(this, Observer<String> { result_address.text = it })
+        viewModel.resultAddres.observe(this, Observer<String> { result_address.text = it })
 
     }
 
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     private fun copyAddress() {
         try {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            val clip = ClipData.newPlainText("address", viewModel.address.value)
+            val clip = ClipData.newPlainText("address", viewModel.resultAddres.value)
             clipboard.setPrimaryClip(clip)
             this.shortToast("Endreço copiado!")
         } catch (e: Exception) {
