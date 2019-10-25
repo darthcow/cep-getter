@@ -25,13 +25,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-<<<<<<< HEAD
+
         //observe viewmodel's variables and what to do with value
         viewModel.resultAddres.observe(this, Observer<String> { result_address.text = it })
-=======
-        //observe viewmodel's variables and set what to do with value
-        viewModel.address.observe(this, Observer<String> { result_address.text = it })
->>>>>>> 7d4367ff4416fd1ddece5a8e2327c8add39d5e51
 
     }
 
