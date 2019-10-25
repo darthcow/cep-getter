@@ -7,11 +7,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.project.cepgetter.TextMask.CEP_MASK
+import com.project.cepgetter.util.TextMask.CEP_MASK
 import com.project.cepgetter.extensions.hideKeyboard
 import com.project.cepgetter.extensions.longToast
 import com.project.cepgetter.extensions.onTextChange
 import com.project.cepgetter.extensions.shortToast
+import com.project.cepgetter.util.TextMask.unmask
+import com.project.cepgetter.util.insertMask
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -23,8 +25,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+<<<<<<< HEAD
         //observe viewmodel's variables and what to do with value
         viewModel.resultAddres.observe(this, Observer<String> { result_address.text = it })
+=======
+        //observe viewmodel's variables and set what to do with value
+        viewModel.address.observe(this, Observer<String> { result_address.text = it })
+>>>>>>> 7d4367ff4416fd1ddece5a8e2327c8add39d5e51
 
     }
 
@@ -50,10 +57,12 @@ class MainActivity : AppCompatActivity() {
         cep_field.insertMask(CEP_MASK)
         //called extension fun onTextChange which implements TextWatcher
         cep_field.onTextChange {
+
+
             //checks if field has required number of characters to make request
-            if (it.length == 9) {
+            if (unmask(it).length == 8) {
                 //Only displays toast if fun returns a message different than null
-                viewModel.getCep(it)?.let { it1 -> this@MainActivity.longToast(it1) }
+                viewModel.getCep(unmask(it))?.let { it1 -> this@MainActivity.longToast(it1) }
                 //hides keyboard after getting address
                 this@MainActivity.hideKeyboard()
             }

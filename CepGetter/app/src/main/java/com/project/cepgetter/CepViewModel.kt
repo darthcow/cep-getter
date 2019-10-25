@@ -13,10 +13,13 @@ class CepViewModel : ViewModel() {
 
     private val address = MutableLiveData<String>()
     var errorMessage: String? = null
+<<<<<<< HEAD
     val resultAddres: LiveData<String>
     get() = address
 
 
+=======
+>>>>>>> 7d4367ff4416fd1ddece5a8e2327c8add39d5e51
     fun getCep(cep: String): String? {
         val call = WebClient().cepService().getCep(cep)
         call.enqueue(object : Callback<AddressResponse?> {
@@ -27,7 +30,6 @@ class CepViewModel : ViewModel() {
                                 "\nBairro: ${it.bairro}\nCidade: ${it.localidade}\nEstado: ${it.uf}"
                 }
             }
-
             override fun onFailure(call: Call<AddressResponse?>, t: Throwable?) {
                 errorMessage = t?.message.toString()
             }
