@@ -4,7 +4,7 @@ project I made to implement simple get request using retrofit, the api used is [
 Project is 90% done.
 
 
-To do list:
+Todo list:
 - ~~Implement Retrofit~~
 - ~~Treat possible errors and exceptions~~
 - ~~Implement MVVM Pattern~~
