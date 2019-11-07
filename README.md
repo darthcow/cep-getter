@@ -14,3 +14,4 @@ Todo list:
 - Implement animations
 - Implement Koin
 - Implement Unit testing
+- Implement Cucumber
