@@ -14,3 +14,5 @@ Todo list:
 - Add images to this readme after finishing project
 - Implement a way of checking if internet is avaiable(maybe an observer)
 - Implement animations
+- Implement Koin
+- Implement Unit testing
