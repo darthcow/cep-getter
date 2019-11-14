@@ -16,3 +16,4 @@ Todo list:
 - Implement Unit testing
 - Implement Cucumber
 - Implement [DataBinding](https://developer.android.com/topic/libraries/data-binding)
+- Implement [Architeture Components](https://developer.android.com/jetpack)
