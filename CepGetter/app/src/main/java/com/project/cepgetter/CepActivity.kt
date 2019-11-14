@@ -23,13 +23,13 @@ class CepActivity : AppCompatActivity() {
 
     private val cepViewModel by lazy { ViewModelProviders.of(this).get(CepViewModel::class.java) }
     private lateinit var binding: ActivityCepBinding
-private val suggestions = arrayListOf("01001000","06765000")
+    private val suggestions = arrayListOf("01001000", "06765000")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_cep)
+        binding.lifecycleOwner = this
         binding.viewModel = cepViewModel
-        subscribeUi()
     }
 
     //fun to copy address result to clipboard
@@ -45,14 +45,9 @@ private val suggestions = arrayListOf("01001000","06765000")
         }
     }
 
-    //observe viewmodel's variables and what to do with value
-    private fun subscribeUi() {
-//        cepViewModel.resultAddres.observe(this, Observer<String> { tv_result_address.text = it })
-    }
-
     override fun onResume() {
         super.onResume()
-        val adapter = ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,suggestions)
+        val adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, suggestions)
         edt_cep_field.setAdapter(adapter)
         //set copyAddress fun to click listener
         tv_result_address.setOnClickListener { copyAddress() }
