@@ -37,7 +37,7 @@ class CepActivity : AppCompatActivity() {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clip = ClipData.newPlainText("address", viewModel.resultAddres.value)
             clipboard.setPrimaryClip(clip)
-            this.shortToast("Endreço copiado!")
+            this.shortToast("Endereço copiado!")
         } catch (e: Exception) {
             this.longToast("Erro ao copiar endereço: ${e.localizedMessage}")
             println(e.localizedMessage)
