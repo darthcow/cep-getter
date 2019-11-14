@@ -18,3 +18,4 @@ Todo list:
 - Implement [DataBinding](https://developer.android.com/topic/libraries/data-binding)
 - Implement [Architeture Components](https://developer.android.com/jetpack)
 - Implement [Material Design](https://material.io/design/) and components
+- Save inputs and suggest on next searches
