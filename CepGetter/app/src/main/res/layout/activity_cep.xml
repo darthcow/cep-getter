@@ -35,12 +35,13 @@
             app:layout_constraintStart_toStartOf="@+id/iv_viacep_logo"
             app:layout_constraintTop_toBottomOf="@+id/iv_viacep_logo" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/edt_cep_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/input_cep_hint"
             android:imeOptions="actionSearch"
+            android:completionThreshold="1"
             android:inputType="number"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_result_address"
