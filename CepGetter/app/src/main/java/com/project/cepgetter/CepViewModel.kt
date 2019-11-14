@@ -10,29 +10,26 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CepViewModel : ViewModel() {
-
-    private val address = MutableLiveData<String>()
     var errorMessage: String? = null
-    val resultAddres: LiveData<String>
-    get() = address
 
+    private val _resultAddres = MutableLiveData<String>()
+    val resultAddres: LiveData<String> get() = _resultAddres
 
     fun getCep(cep: String): String? {
         val call = WebClient().cepService().getCep(cep)
         call.enqueue(object : Callback<AddressResponse?> {
             override fun onResponse(call: Call<AddressResponse?>, response: Response<AddressResponse?>) {
                 response.body()?.let {
-                    address.value =
+                    _resultAddres.value =
                         "Cep: ${it.cep}\nLogradouro: ${it.logradouro}" +
                                 "\nBairro: ${it.bairro}\nCidade: ${it.localidade}\nEstado: ${it.uf}"
                 }
             }
+
             override fun onFailure(call: Call<AddressResponse?>, t: Throwable?) {
                 errorMessage = t?.message.toString()
             }
         })
         return errorMessage
     }
-
-
 }
