@@ -15,3 +15,4 @@ Todo list:
 - Implement Koin
 - Implement Unit testing
 - Implement Cucumber
+- Implement DataBinding
