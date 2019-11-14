@@ -14,17 +14,17 @@ import com.project.cepgetter.extensions.onTextChange
 import com.project.cepgetter.extensions.shortToast
 import com.project.cepgetter.util.TextMask.unmask
 import com.project.cepgetter.util.insertMask
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_cep.*
 
 
-class MainActivity : AppCompatActivity() {
+class CepActivity : AppCompatActivity() {
 
     private val viewModel by lazy { ViewModelProviders.of(this).get(CepViewModel::class.java) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_cep)
 
         //observe viewmodel's variables and what to do with value
         viewModel.resultAddres.observe(this, Observer<String> { result_address.text = it })
@@ -58,9 +58,9 @@ class MainActivity : AppCompatActivity() {
             //checks if field has required number of characters to make request
             if (unmask(it).length == 8) {
                 //Only displays toast if fun returns a message different than null
-                viewModel.getCep(unmask(it))?.let { it1 -> this@MainActivity.longToast(it1) }
+                viewModel.getCep(unmask(it))?.let { it1 -> this@CepActivity.longToast(it1) }
                 //hides keyboard after getting address
-                this@MainActivity.hideKeyboard()
+                this@CepActivity.hideKeyboard()
             }
         }
     }
