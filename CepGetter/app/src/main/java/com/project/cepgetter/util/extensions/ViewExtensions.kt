@@ -1,4 +1,4 @@
-package com.project.cepgetter.extensions
+package com.project.cepgetter.util.extensions
 
 import android.text.Editable
 import android.text.TextWatcher

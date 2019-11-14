@@ -1,4 +1,4 @@
-package com.project.cepgetter.extensions
+package com.project.cepgetter.util.extensions
 
 import android.app.Activity
 import android.view.View

@@ -10,10 +10,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.project.cepgetter.databinding.ActivityCepBinding
 import com.project.cepgetter.util.TextMask.CEP_MASK
-import com.project.cepgetter.extensions.hideKeyboard
-import com.project.cepgetter.extensions.longToast
-import com.project.cepgetter.extensions.onTextChange
-import com.project.cepgetter.extensions.shortToast
+import com.project.cepgetter.util.extensions.hideKeyboard
+import com.project.cepgetter.util.extensions.longToast
+import com.project.cepgetter.util.extensions.onTextChange
+import com.project.cepgetter.util.extensions.shortToast
 import com.project.cepgetter.util.TextMask.unmask
 import com.project.cepgetter.util.insertMask
 import kotlinx.android.synthetic.main.activity_cep.*
