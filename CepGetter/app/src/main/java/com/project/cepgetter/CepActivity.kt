@@ -4,9 +4,9 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.project.cepgetter.databinding.ActivityCepBinding
 import com.project.cepgetter.util.TextMask.CEP_MASK
@@ -23,7 +23,7 @@ class CepActivity : AppCompatActivity() {
 
     private val cepViewModel by lazy { ViewModelProviders.of(this).get(CepViewModel::class.java) }
     private lateinit var binding: ActivityCepBinding
-
+private val suggestions = arrayListOf("01001000","06765000")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +52,8 @@ class CepActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        val adapter = ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,suggestions)
+        edt_cep_field.setAdapter(adapter)
         //set copyAddress fun to click listener
         tv_result_address.setOnClickListener { copyAddress() }
         //insert mask in editText
@@ -64,7 +66,6 @@ class CepActivity : AppCompatActivity() {
                 cepViewModel.getCep(unmask(it))?.let { it1 -> this@CepActivity.longToast(it1) }
                 //hides keyboard after getting address
                 this@CepActivity.hideKeyboard()
-                longToast(binding.viewModel?.resultAddres?.value.toString())
             }
         }
     }
