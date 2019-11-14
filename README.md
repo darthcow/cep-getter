@@ -12,7 +12,7 @@ Todo list:
 - Add images to this readme after finishing project
 - Implement a way of checking if internet is avaiable(maybe an observer)
 - Implement animations
-- Implement Koin
+- Implement [Koin](https://insert-koin.io/)
 - Implement Unit testing
 - Implement Cucumber
-- Implement DataBinding
+- Implement [DataBinding](https://developer.android.com/topic/libraries/data-binding)
