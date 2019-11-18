@@ -11,9 +11,11 @@ import retrofit2.Response
 
 class CepViewModel : ViewModel() {
     var errorMessage: String? = null
-
+    private val _shouldShowResult = MutableLiveData<Boolean>()
     private val _resultAddres = MutableLiveData<String>()
+
     val resultAddres: LiveData<String> get() = _resultAddres
+    val shouldShowResult: LiveData<Boolean> get() = _shouldShowResult
 
     fun getCep(cep: String): String? {
         val call = WebClient().cepService().getCep(cep)
@@ -23,6 +25,7 @@ class CepViewModel : ViewModel() {
                     _resultAddres.value =
                         "Cep: ${it.cep}\nLogradouro: ${it.logradouro}" +
                                 "\nBairro: ${it.bairro}\nCidade: ${it.localidade}\nEstado: ${it.uf}"
+                    _shouldShowResult.value = true
                 }
             }
 

@@ -4,9 +4,11 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.project.cepgetter.databinding.ActivityCepBinding
 import com.project.cepgetter.util.TextMask.CEP_MASK
@@ -21,18 +23,26 @@ import kotlinx.android.synthetic.main.activity_cep.*
 
 class CepActivity : AppCompatActivity() {
 
-    private val cepViewModel by lazy { ViewModelProviders.of(this).get(CepViewModel::class.java) }
     private lateinit var binding: ActivityCepBinding
+
+    private val cepViewModel by lazy { ViewModelProviders.of(this).get(CepViewModel::class.java) }
     private val suggestions = arrayListOf("01001000", "06765000")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //delegate activity initialization do DataBinding library
         binding = DataBindingUtil.setContentView(this, R.layout.activity_cep)
+        //binding needs to receive ViewOwner as lifecycleOwner
         binding.lifecycleOwner = this
+        //binds viewmodel so the expressions and varialbes in the layout can function properly
         binding.viewModel = cepViewModel
+
+
+        cepViewModel.shouldShowResult.observe(this, Observer { shouldShowText(it) })
     }
 
     //fun to copy address result to clipboard
+    //todo use viewmodel to call this fun
     private fun copyAddress() {
         try {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -42,6 +52,12 @@ class CepActivity : AppCompatActivity() {
         } catch (e: Exception) {
             this.longToast("Erro ao copiar endereço: ${e.localizedMessage}")
             println(e.localizedMessage)
+        }
+    }
+
+    private fun shouldShowText(showText: Boolean) {
+        if (showText) {
+            binding.tvResultAddress.visibility = View.VISIBLE
         }
     }
 
