@@ -10,5 +10,6 @@ data class AddressResponse(
     val localidade: String,
     val logradouro: String,
     val uf: String,
-    val unidade: String
+    val unidade: String,
+    val erro: Boolean
 )

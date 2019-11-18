@@ -10,10 +10,12 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CepViewModel : ViewModel() {
+    private val _shouldShowErrorToast = MutableLiveData<Boolean>()
     var errorMessage: String? = null
     private val _shouldShowResult = MutableLiveData<Boolean>()
     private val _resultAddres = MutableLiveData<String>()
 
+    val shouldShowErrorToast : LiveData<Boolean> get() = _shouldShowErrorToast
     val resultAddres: LiveData<String> get() = _resultAddres
     val shouldShowResult: LiveData<Boolean> get() = _shouldShowResult
 
@@ -25,10 +27,11 @@ class CepViewModel : ViewModel() {
                     if (it.erro) {
                         _shouldShowResult.value = false
                         _resultAddres.value = "Cep inválido"
+                        _shouldShowErrorToast.value = true
+
                     } else {
                         _resultAddres.value =
-                            "Cep: ${it.cep}\nLogradouro: ${it.logradouro}" +
-                                    "\nBairro: ${it.bairro}\nCidade: ${it.localidade}\nEstado: ${it.uf}"
+                            "Cep: ${it.cep}\nLogradouro: ${it.logradouro}\nBairro: ${it.bairro}\nCidade: ${it.localidade}\nEstado: ${it.uf}"
                         _shouldShowResult.value = true
                     }
                 }

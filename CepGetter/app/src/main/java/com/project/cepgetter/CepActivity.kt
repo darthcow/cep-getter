@@ -43,6 +43,12 @@ class CepActivity : AppCompatActivity() {
 
     private fun subscribeUi() {
         cepViewModel.shouldShowResult.observe(this, Observer { shouldShowResult(it) })
+        cepViewModel.shouldShowErrorToast.observe(this, Observer{ shouldShowErrorToast(it) })
+    }
+
+    private fun shouldShowErrorToast(showError: Boolean) {
+        if (showError)
+            shortToast(getString(R.string.invalid_result_txt))
     }
 
 
