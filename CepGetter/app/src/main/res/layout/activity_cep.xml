@@ -57,6 +57,7 @@
             android:text="@{viewModel.resultAddres}"
             android:layout_marginEnd="8dp"
             android:gravity="start"
+            android:visibility="invisible"
             android:padding="4dp"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"

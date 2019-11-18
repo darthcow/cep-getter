@@ -64,6 +64,9 @@ class CepActivity : AppCompatActivity() {
     private fun shouldShowResult(showText: Boolean) {
         if (showText)
             binding.tvResultAddress.visibility = View.VISIBLE
+        else
+            binding.tvResultAddress.visibility = View.INVISIBLE
+
     }
 
     override fun onResume() {
