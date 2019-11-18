@@ -22,10 +22,15 @@ class CepViewModel : ViewModel() {
         call.enqueue(object : Callback<AddressResponse?> {
             override fun onResponse(call: Call<AddressResponse?>, response: Response<AddressResponse?>) {
                 response.body()?.let {
-                    _resultAddres.value =
-                        "Cep: ${it.cep}\nLogradouro: ${it.logradouro}" +
-                                "\nBairro: ${it.bairro}\nCidade: ${it.localidade}\nEstado: ${it.uf}"
-                    _shouldShowResult.value = true
+                    if (it.erro) {
+                        _shouldShowResult.value = false
+                        _resultAddres.value = "Cep inválido"
+                    } else {
+                        _resultAddres.value =
+                            "Cep: ${it.cep}\nLogradouro: ${it.logradouro}" +
+                                    "\nBairro: ${it.bairro}\nCidade: ${it.localidade}\nEstado: ${it.uf}"
+                        _shouldShowResult.value = true
+                    }
                 }
             }
 

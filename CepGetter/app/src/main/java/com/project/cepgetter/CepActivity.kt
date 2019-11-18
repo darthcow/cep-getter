@@ -38,8 +38,14 @@ class CepActivity : AppCompatActivity() {
         binding.viewModel = cepViewModel
 
 
-        cepViewModel.shouldShowResult.observe(this, Observer { shouldShowText(it) })
+        subscribeUi()
     }
+
+    private fun subscribeUi() {
+        cepViewModel.shouldShowResult.observe(this, Observer { shouldShowResult(it) })
+    }
+
+
 
     //fun to copy address result to clipboard
     //todo use viewmodel to call this fun
@@ -55,10 +61,9 @@ class CepActivity : AppCompatActivity() {
         }
     }
 
-    private fun shouldShowText(showText: Boolean) {
-        if (showText) {
+    private fun shouldShowResult(showText: Boolean) {
+        if (showText)
             binding.tvResultAddress.visibility = View.VISIBLE
-        }
     }
 
     override fun onResume() {
