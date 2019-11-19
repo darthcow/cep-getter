@@ -20,3 +20,4 @@ Todo list:
 - Implement [Material Design](https://material.io/design/) and components
 - Save inputs and suggest on next searches
 - Add MapView that goes to location if CEP is found
+- Add launcher icon
