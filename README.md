@@ -21,3 +21,4 @@ Todo list:
 - Save inputs and suggest on next searches using Room
 - Add MapView that goes to location if CEP is found
 - Add launcher icon
+- Implement UI Tets with Espresso 
