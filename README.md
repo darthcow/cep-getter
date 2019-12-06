@@ -22,3 +22,4 @@ Todo list:
 - Add MapView that goes to location if CEP is found
 - Add launcher icon
 - Implement UI Tets with Espresso + Cucumber
+- Add splash screen
