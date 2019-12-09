@@ -23,3 +23,4 @@ Todo list:
 - Add launcher icon
 - Implement UI Tets with Espresso + Cucumber
 - Add splash screen
+- Implement Clean Architeture
