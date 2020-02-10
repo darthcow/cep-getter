@@ -1,6 +1,9 @@
 # cep-getter
 Project I made to implement simple get request using retrofit, the api used is [Viacep](https://viacep.com.br/)
 
+![img1](https://i.imgur.com/Dsdg7YWm.png)
+![img2](https://i.imgur.com/CwS0FEmm.png)
+![img3](https://i.imgur.com/dU1l6XSm.png)
 
 Todo list:
 - ~~Implement Retrofit~~
